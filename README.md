@@ -14,7 +14,7 @@ Java, JavaScript, TypeScript, Spring, Angular, Protractor, Selenium / Webdriver,
 
 ### ERD Diagram
 
-![image](https://user-images.githubusercontent.com/50306571/119524721-e3fae680-bd4b-11eb-93b2-e71bbad25b74.png)
+![image](https://user-images.githubusercontent.com/50306571/119531355-d5173280-bd51-11eb-8d72-dae2f4cecd14.png)
 
 ### Requirement Daigram
 ![image](https://user-images.githubusercontent.com/50306571/119524939-14db1b80-bd4c-11eb-81c4-021ea2623002.png)
