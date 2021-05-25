@@ -1,17 +1,16 @@
 # Bug Bounty
 ### Project Introduction
-Bug Bounty is application similar to our own Stack Overflow application. It is, where users/admin can submit Bugs. Admins will be approving bugs. Users and admins can post solutions for bugs reported by other users/admins and get points for a correct solution if accepted by the user/admin who posted the bug and if marked by an admin (not a admin who posted the relevant bug or solution).
-
-The application will follow pseudo Microservice Architechture, in which there will be a 'loginservice' as a microservice and a 'bugservice' as a monolithic application. Both applications will share the same database.
-
-All the bugs will be treated equally and users/admins who offer correct solutions will receive 5 points. When there are more than one correct solution for a bug, the solution offered first will receive the score.
-
-A bug will change from different statuses. When reported by a user/admin, it will be ‘pending’ until an admin ‘accepts’ or ‘rejects’ it. Users/Admins can only view accepted bugs. A solution to the bug will ‘false’ or ‘true’ status. When a solution offered by a user/ an admin, it will be false until the relevant user/admin accepts the solution and updated it to ‘true’. Then when a user/an admin, accepts a solution to the bug by updating the status of the bug to ‘true’, an admin will mark the relevant bug ‘resolved’ and the relevant user/admin a resolver. The leadership score board will update automatically when the user/admin is marked a resolver.
-
-A bug can be ‘rejected’ by an admin and will be invisible to all users.
+Bug Bounty is a web application that allows users to solicit help from other developers by posting bug reports. A bug is defined as a a code snippet that has errors, exceptions or that does not run as intended. It is similar to the well known 'Stack Overflow', however has added features such as an administrator role to approve or deny bug reports, as well as select the best solution for a submitted report. Bug Bounty also adds another twist, in that when a solution for a bug is selected, the author of that solution receives points.
 
 ### Environment / Technologies
 Java, JavaScript, TypeScript, Spring, Angular, Protractor, Selenium / Webdriver, JUnit, TestNG, Jasmine, Jenkins, Spring Boot, Spring Data, Microservices
+
+### Features:
+* Users and administrators are able to submit bug reports, and view previously submitted bug reports.
+* Administrators can also approve or deny bug reports that are submitted by others.
+* Both users and administrators are also able to offer solutions to bug reports that have been previously submitted by other users.
+* Administrators can mark a bug report as resolved, along with the resolver.
+* Users and administrators will also receive points for any solution they submit that is marked as the solution to solve the bug it was submitted for.
 
 ### ERD Diagram
 
