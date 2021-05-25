@@ -12,7 +12,7 @@ Java, JavaScript, TypeScript, Spring, Angular, Protractor, Selenium / Webdriver,
 * Administrators can mark a bug report as resolved, along with the resolver.
 * Users and administrators will also receive points for any solution they submit that is marked as the solution to solve the bug it was submitted for.
 
-### ERD Diagram
+### ER Diagram
 
 ![image](https://user-images.githubusercontent.com/50306571/119531535-042da400-bd52-11eb-9843-e9e952b4db0c.png)
 
