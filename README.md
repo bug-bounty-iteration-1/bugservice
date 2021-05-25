@@ -13,6 +13,9 @@ A bug can be ‘rejected’ by an admin and will be invisible to all users.
 ### Environment / Technologies
 Java, JavaScript, TypeScript, Spring, Angular, Protractor, Selenium / Webdriver, JUnit, TestNG, Jasmine, Jenkins, Spring Boot, Spring Data, Microservices
 
-ERD Diagram
+### ERD Diagram
 
 ![image](https://user-images.githubusercontent.com/50306571/119524721-e3fae680-bd4b-11eb-93b2-e71bbad25b74.png)
+
+### Requirement Daigram
+![image](https://user-images.githubusercontent.com/50306571/119524939-14db1b80-bd4c-11eb-81c4-021ea2623002.png)
