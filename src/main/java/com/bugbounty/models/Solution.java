@@ -19,6 +19,9 @@ public class Solution {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "solution_id", nullable = false, unique = true)
 	private int solutionId;
+	
+	@Column(name = "solution", nullable = false)     //added
+	private String solution;
 
 	@Column(name = "status", nullable = false, columnDefinition = "boolean default false")
 	private boolean solutionStatus;
@@ -95,10 +98,20 @@ public class Solution {
 		this.user = user;
 	}
 
+	public String getSolution() {
+		return solution;
+	}
+
+	public void setSolution(String solution) {
+		this.solution = solution;
+	}
+
 	@Override
 	public String toString() {
-		return "Solution [solutionId=" + solutionId + ", solutionStatus=" + solutionStatus + ", solutionSubmissionDate="
-				+ solutionSubmissionDate + ", bug=" + bug + ", user=" + user + "]";
+		return "Solution [solutionId=" + solutionId + ", solution=" + solution + ", solutionStatus=" + solutionStatus
+				+ ", solutionSubmissionDate=" + solutionSubmissionDate + ", bug=" + bug + ", user=" + user + "]";
 	}
+
+
 
 }

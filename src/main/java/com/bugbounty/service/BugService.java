@@ -54,6 +54,9 @@ public class BugService {
 		return bugRepo.findAll();
 	}
 
+	public List<Bug> getAllAcceptedBugs(int statusId){
+		return bugRepo.findAllAcceptedBugs(statusId);
+	}
 
 
 

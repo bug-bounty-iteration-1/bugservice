@@ -18,7 +18,8 @@ public interface BugRepository extends JpaRepository<Bug, Integer>{
 
     public Bug findByBugId(int bugId);
 
-
-
+    @Query("select b from Bug b JOIN b.bugStatus bs where bs.statusId = statusId")
+    public List<Bug> findAllAcceptedBugs(int statusId);
+    
 
 }

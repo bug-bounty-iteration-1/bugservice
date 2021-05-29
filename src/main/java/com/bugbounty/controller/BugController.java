@@ -51,6 +51,12 @@ public class BugController {
 	public ResponseEntity<List<Bug>> getAllBugsByUserId(@PathVariable int userId){
 		return new ResponseEntity<List<Bug>>(bugServ.getAllBugsByUserId(userId), HttpStatus.OK);
 	}
+	
+	@GetMapping("accepted/{statusId}")
+	public ResponseEntity<List<Bug>> getAllAcceptedBugs(@PathVariable int statusId){
+		statusId = 2;
+		return new ResponseEntity<List<Bug>>(bugServ.getAllAcceptedBugs(statusId), HttpStatus.OK);
+	}
 
 
 }
