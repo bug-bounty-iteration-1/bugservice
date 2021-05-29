@@ -38,46 +38,37 @@ public class SolutionService {
 	public SolutionService() {
 		super();
 	}
-	
-	
-	//Update solution status by user
-	
-	public boolean updateSolutionStatus(int solutionId, boolean solutionStatus) {
-		
-		if(solutionStatus == true) {
-			
-			solutionRepo.updateStatus(solutionStatus, solutionId);
-			
-			return solutionStatus;
-		}
-		
-		return solutionStatus;
+
+	// Update solution status by user
+
+	public boolean updateSolutionStatus(Solution solution) {
+		Solution mySolution = this.solutionRepo.getById(solution.getSolutionId());
+		mySolution.setSolutionStatus(solution.isSolutionStatus());
+		this.solutionRepo.save(mySolution);
+		return true;
 	}
-	
-	
-	//Create Solution
-	
-	public int insertSolution(String solution, LocalDateTime solutionSubmissionDate,Bug bug, User user){
-			
+
+	// Create Solution
+
+	public int insertSolution(String solution, LocalDateTime solutionSubmissionDate, Bug bug, User user) {
+
 		Solution s = new Solution();
-		
+
 		s.setSolution(solution);
 		s.setSolutionStatus(false);
 		s.setSolutionSubmissionDate(solutionSubmissionDate);
 		s.setBug(bug);
 		s.setUser(user);
-		
+
 		return solutionRepo.save(s).getSolutionId();
 	}
-	
-	
-	//	return list of all solutions for a particular bug
-	
-	public List<Solution> allSolutionsForBug(int bug_id_fk){
-		
+
+	// return list of all solutions for a particular bug
+
+	public List<Solution> allSolutionsForBug(int bug_id_fk) {
+
 		return solutionRepo.allSolutionsForABug(bug_id_fk);
-		
+
 	}
-	
-	
+
 }

@@ -105,7 +105,7 @@ public class Solution {
 	public void setSolution(String solution) {
 		this.solution = solution;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Solution [solutionId=" + solutionId + ", solution=" + solution + ", solutionStatus=" + solutionStatus

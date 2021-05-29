@@ -24,9 +24,9 @@ public class BugController {
 		this.bugServ = bugServ;
 	}
 
-//	//public BugController() {
-//		super();
-//	}
+	public BugController() {
+		super();
+	}
 
 	@GetMapping()
 	public ResponseEntity<List<Bug>> getAllBugs(){
