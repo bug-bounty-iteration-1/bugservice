@@ -1,8 +1,14 @@
 package com.bugbounty.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bugbounty.models.Bug;
+import com.bugbounty.models.Solution;
+import com.bugbounty.models.User;
 import com.bugbounty.repository.BugRepository;
 import com.bugbounty.repository.RoleRepository;
 import com.bugbounty.repository.SolutionRepository;
@@ -32,5 +38,46 @@ public class SolutionService {
 	public SolutionService() {
 		super();
 	}
+	
+	
+	//Update solution status by user
+	
+	public boolean updateSolutionStatus(int solutionId, boolean solutionStatus) {
+		
+		if(solutionStatus == true) {
+			
+			solutionRepo.updateStatus(solutionStatus, solutionId);
+			
+			return solutionStatus;
+		}
+		
+		return solutionStatus;
+	}
+	
+	
+	//Create Solution
+	
+	public int insertSolution(String solution, LocalDateTime solutionSubmissionDate,Bug bug, User user){
+			
+		Solution s = new Solution();
+		
+		s.setSolution(solution);
+		s.setSolutionStatus(false);
+		s.setSolutionSubmissionDate(solutionSubmissionDate);
+		s.setBug(bug);
+		s.setUser(user);
+		
+		return solutionRepo.save(s).getSolutionId();
+	}
+	
+	
+	//	return list of all solutions for a particular bug
+	
+	public List<Solution> allSolutionsForBug(int bug_id_fk){
+		
+		return solutionRepo.allSolutionsForABug(bug_id_fk);
+		
+	}
+	
 	
 }
