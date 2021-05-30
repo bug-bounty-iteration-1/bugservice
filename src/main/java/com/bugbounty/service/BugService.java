@@ -60,11 +60,24 @@ public class BugService {
 		return bugsAccepted;
 	}
 
-	public int updateBugStatus(Bug bug, int statusId) {
-		Status status = statusRepo.getById(statusId);
-		bug.setBugStatus(status);
-		return bugRepo.save(bug).getBugId();
-	}
+//	public int updateBugStatus(Bug bug, int statusId) {
+//		Status status = statusRepo.getById(statusId);
+//		bug.setBugStatus(status);
+//		return bugRepo.save(bug).getBugId();
+//	}
 
+	public int updateBugStatus(Bug bug) {
+		
+		//Status status = statusRepo.getById(statusId);
+	   //	bug.setBugStatus(status);
+		//bug.setBugStatus(statusRepo.getById(bug.getBugStatus().getStatusId()));
+		
+		Bug mybug = bugRepo.getById(bug.getBugId());
+		if(bug.getBugStatus()!=null) {
+			mybug.setBugStatus(bug.getBugStatus());
+		}
+		
+		return bugRepo.save(mybug).getBugId();
+	}
 
 }

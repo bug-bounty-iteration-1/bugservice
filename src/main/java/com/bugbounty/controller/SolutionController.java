@@ -54,6 +54,7 @@ public class SolutionController {
 	}
 
 	// public int insertSolution(String solution, LocalDateTime solutionSubmissionDate, Bug bug, User user)
+	
 	@PostMapping("/new-solution")
 	public ResponseEntity<Integer> createSolution(@RequestBody Solution solution) {
 		int solutionId = this.solutionServ.insertSolution(solution.getSolution(), solution.getSolutionSubmissionDate(),

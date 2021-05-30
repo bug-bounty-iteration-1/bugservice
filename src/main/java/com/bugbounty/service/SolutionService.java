@@ -51,6 +51,10 @@ public class SolutionService {
 	// Create Solution
 
 	public int insertSolution(String solution, LocalDateTime solutionSubmissionDate, Bug bug, User user) {
+		
+		if(bug.getBugOwner().getUserId()==user.getUserId()) {
+			return -1;
+		}
 
 		Solution s = new Solution();
 

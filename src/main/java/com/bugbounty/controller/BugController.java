@@ -45,9 +45,19 @@ public class BugController {
 		return new ResponseEntity<List<Bug>>(bugServ.getAllAcceptedAndResolvedBugs(), HttpStatus.OK);
 	}
 
-	@PostMapping("/update-bugStatus/{statusId}")
-	public ResponseEntity<Integer> updateBugStatus(@RequestBody Bug bug, @PathVariable int statusId){
-		return new ResponseEntity<Integer>(bugServ.updateBugStatus(bug, statusId), HttpStatus.OK);
+//	@PostMapping("/update-bugStatus/{statusId}")
+//	public ResponseEntity<Integer> updateBugStatus(@RequestBody Bug bug, @PathVariable int statusId){
+//				
+//		return new ResponseEntity<Integer>(bugServ.updateBugStatus(bug, statusId), HttpStatus.OK);
+//	}
+	
+	
+	
+	@PostMapping("/update-bugStatus")
+	public ResponseEntity<Integer> updateBugStatus(@RequestBody Bug bug){
+		
+						
+		return new ResponseEntity<Integer>(bugServ.updateBugStatus(bug), HttpStatus.OK);
 	}
 
 }
