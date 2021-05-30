@@ -65,10 +65,11 @@ public class SolutionService {
 
 	// return list of all solutions for a particular bug
 
-	public List<Solution> allSolutionsForBug(int bug_id_fk) {
-
-		return solutionRepo.allSolutionsForABug(bug_id_fk);
-
+	public List<Solution> allSolutionsForBug(int bugId) {
+		Bug bug = this.bugRepo.getById(bugId);
+		List<Solution> solutions = this.solutionRepo.findByBug(bug);
+		
+		return solutions;
 	}
 
 }

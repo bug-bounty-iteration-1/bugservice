@@ -33,30 +33,21 @@ public class BugController {
 		return new ResponseEntity<List<Bug>>(bugServ.getAllBugs(), HttpStatus.OK);
 	}
 
-	@PostMapping()
+	@PostMapping("/new-bug")
 	public ResponseEntity<String> insertBug(@RequestBody Bug bug){
-		System.out.println(bug);
-
-		int userId = bug.getBugOwner().getUserId();
-
-		//check if user exists
-
-
-		bugServ.insertBug(bug);
-
+		this.bugServ.insertBug(bug.getBugDescription(), bug.getBugSubmissionDate(), bug.getBugOwner());
 		return new ResponseEntity<String>("Bug Created", HttpStatus.CREATED);
 	}
 
-	@GetMapping("user/{userId}")
-	public ResponseEntity<List<Bug>> getAllBugsByUserId(@PathVariable int userId){
-		return new ResponseEntity<List<Bug>>(bugServ.getAllBugsByUserId(userId), HttpStatus.OK);
-	}
 	
-	@GetMapping("accepted/{statusId}")
-	public ResponseEntity<List<Bug>> getAllAcceptedBugs(@PathVariable int statusId){
-		statusId = 2;
-		return new ResponseEntity<List<Bug>>(bugServ.getAllAcceptedBugs(statusId), HttpStatus.OK);
+	@GetMapping("/accepted")
+	public ResponseEntity<List<Bug>> getAllAcceptedBugs(){
+		return new ResponseEntity<List<Bug>>(bugServ.getAllAcceptedAndResolvedBugs(), HttpStatus.OK);
 	}
 
+	@PostMapping("/update-bugStatus/{statusId}")
+	public ResponseEntity<Integer> updateBugStatus(@RequestBody Bug bug, @PathVariable int statusId){
+		return new ResponseEntity<Integer>(bugServ.updateBugStatus(bug, statusId), HttpStatus.OK);
+	}
 
 }

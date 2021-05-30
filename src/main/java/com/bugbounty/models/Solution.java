@@ -105,21 +105,6 @@ public class Solution {
 	public void setSolution(String solution) {
 		this.solution = solution;
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> a77feb4878134bc82cc98a9734d9539d477405c1
-	@Override
-	public String toString() {
-		return "Solution [solutionId=" + solutionId + ", solution=" + solution + ", solutionStatus=" + solutionStatus
-				+ ", solutionSubmissionDate=" + solutionSubmissionDate + ", bug=" + bug + ", user=" + user + "]";
-	}
-
-
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a77feb4878134bc82cc98a9734d9539d477405c1
+

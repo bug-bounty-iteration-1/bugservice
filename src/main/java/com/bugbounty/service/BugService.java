@@ -1,17 +1,19 @@
 package com.bugbounty.service;
 
-import com.bugbounty.models.Bug;
-import com.bugbounty.models.User;
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bugbounty.models.Bug;
+import com.bugbounty.models.Status;
+import com.bugbounty.models.User;
 import com.bugbounty.repository.BugRepository;
 import com.bugbounty.repository.RoleRepository;
 import com.bugbounty.repository.SolutionRepository;
 import com.bugbounty.repository.StatusRepository;
 import com.bugbounty.repository.UserRepository;
-
-import java.util.List;
 
 @Service
 public class BugService {
@@ -36,17 +38,14 @@ public class BugService {
 	public BugService() {
 
 	}
-
-	public List<Bug> getAllBugsByUserId(int userId){
-		return bugRepo.findAllFromUserId(userId);
-	}
-
-	public Bug updateBug(Bug bug)
-	{
-		return bugRepo.save(bug);
-	}
-
-	public int insertBug(Bug bug){
+	
+	public int insertBug(String description, LocalDateTime submissionDate, User bugOwner) {
+		Bug bug = new Bug();
+		bug.setBugDescription(description);
+		bug.setBugSubmissionDate(submissionDate);
+		bug.setBugOwner(bugOwner);
+		bug.setBugStatus(statusRepo.getById(1));
+		
 		return bugRepo.save(bug).getBugId();
 	}
 
@@ -54,10 +53,18 @@ public class BugService {
 		return bugRepo.findAll();
 	}
 
-	public List<Bug> getAllAcceptedBugs(int statusId){
-		return bugRepo.findAllAcceptedBugs(statusId);
+	public List<Bug> getAllAcceptedAndResolvedBugs(){
+		List<Bug> bugsAccepted = bugRepo.findByBugStatus(statusRepo.getById(2));
+		List<Bug> bugsResolved = bugRepo.findByBugStatus(statusRepo.getById(3));
+		bugsAccepted.addAll(bugsResolved);
+		return bugsAccepted;
 	}
 
+	public int updateBugStatus(Bug bug, int statusId) {
+		Status status = statusRepo.getById(statusId);
+		bug.setBugStatus(status);
+		return bugRepo.save(bug).getBugId();
+	}
 
 
 }
