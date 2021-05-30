@@ -105,7 +105,11 @@ public class Solution {
 	public void setSolution(String solution) {
 		this.solution = solution;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> a77feb4878134bc82cc98a9734d9539d477405c1
 	@Override
 	public String toString() {
 		return "Solution [solutionId=" + solutionId + ", solution=" + solution + ", solutionStatus=" + solutionStatus
@@ -114,4 +118,8 @@ public class Solution {
 
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a77feb4878134bc82cc98a9734d9539d477405c1
