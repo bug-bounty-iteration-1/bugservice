@@ -1,6 +1,9 @@
 package com.bugbounty.controller;
 
 import com.bugbounty.models.Bug;
+import com.bugbounty.models.Solution;
+import com.bugbounty.models.User;
+
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,19 +48,21 @@ public class BugController {
 		return new ResponseEntity<List<Bug>>(bugServ.getAllAcceptedAndResolvedBugs(), HttpStatus.OK);
 	}
 
-//	@PostMapping("/update-bugStatus/{statusId}")
-//	public ResponseEntity<Integer> updateBugStatus(@RequestBody Bug bug, @PathVariable int statusId){
-//				
-//		return new ResponseEntity<Integer>(bugServ.updateBugStatus(bug, statusId), HttpStatus.OK);
-//	}
-	
-	
 	
 	@PostMapping("/update-bugStatus")
 	public ResponseEntity<Integer> updateBugStatus(@RequestBody Bug bug){
 		
 						
 		return new ResponseEntity<Integer>(bugServ.updateBugStatus(bug), HttpStatus.OK);
+	}
+	
+	@GetMapping("/user-bug")
+	public ResponseEntity<List<Bug>> getAllBugsByUser(@RequestBody User user) {
+//		User user = "should be done at LoginService";
+		
+		List<Bug> bugs = bugServ.getAllBugsByUser(user);
+		
+		return new ResponseEntity<List<Bug>>(bugs, HttpStatus.OK);
 	}
 
 }

@@ -69,4 +69,13 @@ public class SolutionController {
 		
 		return new ResponseEntity<HashMap<User, Integer>>(points, HttpStatus.OK);
 	}
+	
+	@GetMapping("/user-solution")
+	public ResponseEntity<List<Solution>> getAllSolutionsByUser(@RequestBody User user) {
+//		User user = "should be done at LoginService";
+		
+		List<Solution> solutions = solutionServ.getAllSolutionsByUserId(user);
+		
+		return new ResponseEntity<List<Solution>>(solutions, HttpStatus.OK);
+	}
 }

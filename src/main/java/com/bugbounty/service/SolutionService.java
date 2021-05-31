@@ -112,5 +112,11 @@ public class SolutionService {
 		}
 		return userPoints;
 	}
+	
+	// get all solutions by userId
+	public List<Solution> getAllSolutionsByUserId(User user) {
+		List<Solution> solutions = new ArrayList<>();
+		return solutionRepo.findAllByUser(user);
+	}
 
 }
