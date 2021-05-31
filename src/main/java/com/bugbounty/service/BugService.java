@@ -53,6 +53,12 @@ public class BugService {
 		return bugRepo.findAll();
 	}
 
+	// get all resolved bugs for point calculation
+	public List<Bug> getAllResolvedBugs(){
+		List<Bug> bugsResolved = bugRepo.findByBugStatus(statusRepo.getById(3));
+		return bugsResolved;
+	}
+	
 	public List<Bug> getAllAcceptedAndResolvedBugs(){
 		List<Bug> bugsAccepted = bugRepo.findByBugStatus(statusRepo.getById(2));
 		List<Bug> bugsResolved = bugRepo.findByBugStatus(statusRepo.getById(3));

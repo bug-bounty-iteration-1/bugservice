@@ -1,6 +1,8 @@
 package com.bugbounty.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +25,18 @@ public class SolutionService {
 	private SolutionRepository solutionRepo;
 	private StatusRepository statusRepo;
 	private UserRepository userRepo;
+	private BugService bugServ;
 
 	@Autowired
 	public SolutionService(BugRepository bugRepo, RoleRepository roleRepo, SolutionRepository solutionRepo,
-			StatusRepository statusRepo, UserRepository userRepo) {
+			StatusRepository statusRepo, UserRepository userRepo, BugService bugServ) {
 		super();
 		this.bugRepo = bugRepo;
 		this.roleRepo = roleRepo;
 		this.solutionRepo = solutionRepo;
 		this.statusRepo = statusRepo;
 		this.userRepo = userRepo;
+		this.bugServ = bugServ;
 	}
 
 	public SolutionService() {
@@ -51,8 +55,8 @@ public class SolutionService {
 	// Create Solution
 
 	public int insertSolution(String solution, LocalDateTime solutionSubmissionDate, Bug bug, User user) {
-		
-		if(bug.getBugOwner().getUserId()==user.getUserId()) {
+
+		if (bug.getBugOwner().getUserId() == user.getUserId()) {
 			return -1;
 		}
 
@@ -72,8 +76,41 @@ public class SolutionService {
 	public List<Solution> allSolutionsForBug(int bugId) {
 		Bug bug = this.bugRepo.getById(bugId);
 		List<Solution> solutions = this.solutionRepo.findByBug(bug);
-		
+
 		return solutions;
+	}
+
+	// get all solutions with status true
+	public List<Solution> getAllSolutionResolved() {
+		List<Bug> resolvedBugs = bugServ.getAllResolvedBugs();
+		List<Solution> solutions = new ArrayList<>();
+		for (Bug bug : resolvedBugs) {
+			solutions.addAll(solutionRepo.findByBug(bug));
+		}
+
+		List<Solution> trueSolutions = new ArrayList<>();
+		for (Solution solution : solutions) {
+			if (solution.isSolutionStatus()) {
+				trueSolutions.add(solution);
+			}
+		}
+
+		return trueSolutions;
+	}
+
+	// get user from solutions resolved (solutions with status of true)
+	public HashMap<User, Integer> getUserPointsMap() {
+		HashMap<User, Integer> userPoints = new HashMap<>();
+		List<Solution> solutionResolved = getAllSolutionResolved();
+		for (Solution solution : solutionResolved) {
+			User u = solution.getUser();
+			if (userPoints.get(u) == null) {
+				userPoints.put(u, 1);
+			} else {
+				userPoints.put(u, userPoints.get(u) + 1);
+			}
+		}
+		return userPoints;
 	}
 
 }

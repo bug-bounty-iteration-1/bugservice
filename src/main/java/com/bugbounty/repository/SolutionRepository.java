@@ -19,5 +19,5 @@ public interface SolutionRepository extends JpaRepository<Solution, Integer> {
 	@Query("select s from Solution s where s.bug.bugId =: bugId")
 	public List<Solution> allSolutionsForABug(@Param("bugId") int bugId);
 
-	public List<Solution> findByBug(Bug bug);
+	public List<Solution> findByBug(Bug bug);	
 }

@@ -1,6 +1,6 @@
 package com.bugbounty.controller;
 
-import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bugbounty.models.Bug;
 import com.bugbounty.models.Solution;
 import com.bugbounty.models.User;
 import com.bugbounty.repository.BugRepository;
@@ -63,5 +62,11 @@ public class SolutionController {
 		return new ResponseEntity<>(solutionId, HttpStatus.CREATED);
 	}
 	
-
+	@GetMapping("/calc")
+	public ResponseEntity<HashMap<User, Integer>> calculatePoints() {
+		HashMap<User, Integer> points = new HashMap<>();
+		points = solutionServ.getUserPointsMap();
+		
+		return new ResponseEntity<HashMap<User, Integer>>(points, HttpStatus.OK);
+	}
 }
