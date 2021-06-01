@@ -99,7 +99,6 @@ public class BugServiceTest {
 	public void getResolvedBugsTest() {
 		List<Bug> resolvedBugs = new ArrayList<>();
 		resolvedBugs = service.getAllResolvedBugs();
-		
 		assertEquals(mockBugs, resolvedBugs);
 	}
 	
