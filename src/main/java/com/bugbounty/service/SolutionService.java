@@ -42,9 +42,12 @@ public class SolutionService {
 	public SolutionService() {
 		super();
 	}
-
-	// Update solution status by user
-
+	
+	/*
+     * Updates solution status (true or false, true means solution is accepted)
+     * @param solution object to be updated
+     * @return true after solution is updated (accepted)
+     */
 	public boolean updateSolutionStatus(Solution solution) {
 		Solution mySolution = this.solutionRepo.getById(solution.getSolutionId());
 		mySolution.setSolutionStatus(solution.isSolutionStatus());
@@ -52,8 +55,11 @@ public class SolutionService {
 		return true;
 	}
 
-	// Create Solution
-
+	/*
+     * Creates a solution
+     * @param properties of solution object to be created
+     * @return ID of solution created
+     */
 	public int insertSolution(String solution, LocalDateTime solutionSubmissionDate, Bug bug, User user) {
 
 		if (bug.getBugOwner().getUserId() == user.getUserId()) {
@@ -71,16 +77,21 @@ public class SolutionService {
 		return solutionRepo.save(s).getSolutionId();
 	}
 
-	// return list of all solutions for a particular bug
-
+	/*
+     * Returns all solution of a bug
+     * @param bugId of a bug that has solution(s)
+     * @return list of solutions belong to a bug
+     */
 	public List<Solution> allSolutionsForBug(int bugId) {
 		Bug bug = this.bugRepo.getById(bugId);
 		List<Solution> solutions = this.solutionRepo.findByBug(bug);
-
 		return solutions;
 	}
 
-	// get all solutions with status true
+	/*
+     * Returns all solutions whose status is true
+     * @return list of solutions having status true
+     */
 	public List<Solution> getAllSolutionResolved() {
 		List<Bug> resolvedBugs = bugServ.getAllResolvedBugs();
 		List<Solution> solutions = new ArrayList<>();
@@ -94,11 +105,13 @@ public class SolutionService {
 				trueSolutions.add(solution);
 			}
 		}
-
 		return trueSolutions;
 	}
 
-	// get user from solutions resolved (solutions with status of true)
+	/*
+     * Returns user and user's point whose solutions is accepted (true)
+     * @return hash map of userPoints that has user and user's point
+     */
 	public HashMap<User, Integer> getUserPointsMap() {
 		HashMap<User, Integer> userPoints = new HashMap<>();
 		List<Solution> solutionResolved = getAllSolutionResolved();
@@ -113,9 +126,12 @@ public class SolutionService {
 		return userPoints;
 	}
 	
-	// get all solutions by userId
+	/*
+     * Returns all solution of an user
+     * @param userId of an user who has solutions
+     * @return list of solutions belong to an user
+     */
 	public List<Solution> getAllSolutionsByUserId(User user) {
-		List<Solution> solutions = new ArrayList<>();
 		return solutionRepo.findAllByUser(user);
 	}
 

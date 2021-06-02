@@ -31,6 +31,9 @@ import com.bugbounty.service.SolutionService;
 @SpringBootTest
 public class SolutionServiceTest {
 
+	/*
+	 * Mocking objects that are used to test
+	 */
 	@Mock
 	private BugRepository bRepo = mock(BugRepository.class);
 	private SolutionRepository sRepo = mock(SolutionRepository.class);
@@ -49,7 +52,9 @@ public class SolutionServiceTest {
 	Solution resolvedSolution1 = new Solution(2, true, date, bug, user1);
 	Solution resolvedSolution2 = new Solution(3, true, date, bug, user1);
 	
-	
+	/*
+	 * Initialize mocked values
+	 */
 	@BeforeEach
 	public void init() {
 		MockitoAnnotations.initMocks(this);
@@ -64,6 +69,9 @@ public class SolutionServiceTest {
 		when(solServ.getAllSolutionsByUserId(user1)).thenReturn(resolvedSolutions);
 	}
 	
+	/*
+	 * test case for allSolutionsForBug
+	 */
 	@Test
 	public void allSolutionsForBugTest() {
 		Bug bug = bRepo.getById(1);
@@ -71,6 +79,9 @@ public class SolutionServiceTest {
 		assertEquals(solutions, mockSolutions);
 	}
 	
+	/*
+	 * test case for getAllSolutionResolved
+	 */
 	@Test
 	public void getAllSolutionResolvedTest() {
 		List<Solution> solutions = new ArrayList<>();
@@ -79,6 +90,9 @@ public class SolutionServiceTest {
 		assertEquals(solutions, resolvedSolutions);
 	}
 	
+	/*
+	 * test case for getAllSolutionsByUser
+	 */
 	@Test
 	public void getAllSolutionsByUserId() {
 		List<Solution> solutions = new ArrayList<>();

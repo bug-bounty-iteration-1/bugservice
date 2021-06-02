@@ -31,6 +31,9 @@ import com.bugbounty.service.BugService;
 @SpringBootTest
 public class BugServiceTest {
 	
+	/*
+	 * Mocking objects that are used to test
+	 */
 	@Mock
 	private BugRepository bRepo;
 	private StatusRepository statusRepo = mock(StatusRepository.class);
@@ -47,6 +50,9 @@ public class BugServiceTest {
 	private BugService service = new BugService();
 	private Bug bug;
 	
+	/*
+	 * Initialize mocked values
+	 */
 	@Before(value = "")
 	public void init() {
 		MockitoAnnotations.initMocks(this);
@@ -57,9 +63,11 @@ public class BugServiceTest {
 		when(bRepo.getById(1)).thenReturn(mockBugs.get(0));
 	}
 	
+	/*
+	 * test case for getAllBugs method
+	 */
 	@Test
 	public void getAllBugsTest() {
-		
 		List<Bug> bugList = new ArrayList<Bug>();
 		LocalDateTime date = LocalDateTime.now();
 		Role role = new Role();
@@ -74,10 +82,12 @@ public class BugServiceTest {
 		List<Bug> list = bRepo.findAll();
 		
 		assertEquals(1, bugList.size());
-		verify(bRepo, times(1)).findAll();
-				
+		verify(bRepo, times(1)).findAll();	
 	}
 	
+	/*
+	 * test case for getBugsByUserId method
+	 */
 	@Test
 	public void getBugsByUserIdTest() {
 		LocalDateTime date = LocalDateTime.now();
@@ -95,6 +105,9 @@ public class BugServiceTest {
 		verify(bRepo, times(1)).findAllByBugOwner(user1);
 	}
 	
+	/*
+	 * test case for getResolvedBugs method
+	 */
 	@Test
 	public void getResolvedBugsTest() {
 		List<Bug> resolvedBugs = new ArrayList<>();
@@ -102,12 +115,13 @@ public class BugServiceTest {
 		assertEquals(mockBugs, resolvedBugs);
 	}
 	
+	/*
+	 * test case for getAllBugsByUser method
+	 */
 	@Test
 	public void getAllBugsByUserTest() {
 		List<Bug> bugs = new ArrayList<>();
 		bugs = service.getAllBugsByUser(user1);
 		assertEquals(mockBugs, bugs);
 	}
-
-
 }

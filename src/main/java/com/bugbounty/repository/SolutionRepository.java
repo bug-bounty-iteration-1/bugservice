@@ -12,14 +12,7 @@ import com.bugbounty.models.Solution;
 import com.bugbounty.models.User;
 
 public interface SolutionRepository extends JpaRepository<Solution, Integer> {
-
-//	@Modifying
-//	@Query("update Solution s set s.solutionStatus = solutionStatus where s.solutionId = solutionId")
-//	public void updateStatus(boolean solutionStatus, int solutionId);
-
-//	@Query("select s from Solution s where s.bug.bugId =: bugId")
-//	public List<Solution> allSolutionsForABug(@Param("bugId") int bugId);
-
+	
 	public List<Solution> findByBug(Bug bug);
 	
 	public List<Solution> findAllByUser(User user);

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bugbounty.models.Bug;
-import com.bugbounty.models.Solution;
-import com.bugbounty.models.Status;
 import com.bugbounty.models.User;
 import com.bugbounty.repository.BugRepository;
 import com.bugbounty.repository.RoleRepository;
@@ -50,17 +48,28 @@ public class BugService {
 
 		return bugRepo.save(bug).getBugId();
 	}
-
+	
+	/*
+     * Returns all list of bugs existing.
+     * @return bug list
+     */
 	public List<Bug> getAllBugs() {
 		return bugRepo.findAll();
 	}
 
-	// get all resolved bugs for point calculation
+	/*
+     * Returns all list of bugs resolved.
+     * @return list of bugs resolved
+     */
 	public List<Bug> getAllResolvedBugs() {
 		List<Bug> bugsResolved = bugRepo.findByBugStatus(statusRepo.getById(3));
 		return bugsResolved;
 	}
 
+	/*
+     * Returns all list of bugs accepted and resolved.
+     * @return list of bugs accepted and resolved
+     */
 	public List<Bug> getAllAcceptedAndResolvedBugs() {
 		List<Bug> bugsAccepted = bugRepo.findByBugStatus(statusRepo.getById(2));
 		List<Bug> bugsResolved = bugRepo.findByBugStatus(statusRepo.getById(3));
@@ -68,18 +77,12 @@ public class BugService {
 		return bugsAccepted;
 	}
 
-//	public int updateBugStatus(Bug bug, int statusId) {
-//		Status status = statusRepo.getById(statusId);
-//		bug.setBugStatus(status);
-//		return bugRepo.save(bug).getBugId();
-//	}
-
+	/*
+     * Updates bug and returns bug.
+     * @param bug object that would be updated
+     * @return bugId that has been updated
+     */
 	public int updateBugStatus(Bug bug) {
-
-		// Status status = statusRepo.getById(statusId);
-		// bug.setBugStatus(status);
-		// bug.setBugStatus(statusRepo.getById(bug.getBugStatus().getStatusId()));
-
 		Bug mybug = bugRepo.getById(bug.getBugId());
 		if (bug.getBugStatus() != null) {
 			mybug.setBugStatus(bug.getBugStatus());
@@ -88,7 +91,11 @@ public class BugService {
 		return bugRepo.save(mybug).getBugId();
 	}
 	
-	// get all bugs by userId
+	/*
+     * Returns all bugs by userId
+     * @param user object that has bug(s)
+     * @return all bugs belong to the user
+     */
 	public List<Bug> getAllBugsByUser(User user) {
 		List<Bug> bugs = new ArrayList<>();
 		bugs = bugRepo.findAllByBugOwner(user);

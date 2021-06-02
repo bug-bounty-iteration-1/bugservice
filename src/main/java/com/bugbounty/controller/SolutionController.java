@@ -39,12 +39,22 @@ public class SolutionController {
 		super();
 	}
 
+	/*
+     * Updates solution status (accept solution)
+     * @param solution object to be updated
+     * @return true value
+     */
 	@PostMapping("/update-solution-status")
 	public ResponseEntity<Boolean> updateSolutionStatus(@RequestBody Solution solution) {
 		boolean result = this.solutionServ.updateSolutionStatus(solution);
 		return new ResponseEntity<Boolean>(result, HttpStatus.ACCEPTED);
 	}
 	
+	/*
+     * Returns list of solutions belong to a bug
+     * @param bugId
+     * @return solutions of a bug
+     */
 	@GetMapping("/{bugId}") 
 	public ResponseEntity<List<Solution>> getSolutionByBug(@PathVariable("bugId") int id) {
 		List<Solution> solutions = this.solutionServ.allSolutionsForBug(id);
@@ -52,8 +62,11 @@ public class SolutionController {
 		return new ResponseEntity<List<Solution>>(solutions, HttpStatus.OK);
 	}
 
-	// public int insertSolution(String solution, LocalDateTime solutionSubmissionDate, Bug bug, User user)
-	
+	/*
+     * Creates new solution
+     * @param solution object
+     * @return ID of solution created
+     */
 	@PostMapping("/new-solution")
 	public ResponseEntity<Integer> createSolution(@RequestBody Solution solution) {
 		int solutionId = this.solutionServ.insertSolution(solution.getSolution(), solution.getSolutionSubmissionDate(),
@@ -62,20 +75,25 @@ public class SolutionController {
 		return new ResponseEntity<>(solutionId, HttpStatus.CREATED);
 	}
 	
+	/*
+     * Calculates user's points whose solution is accepted 
+     * @return hash map of user and user's points
+     */
 	@GetMapping("/calc")
 	public ResponseEntity<HashMap<User, Integer>> calculatePoints() {
 		HashMap<User, Integer> points = new HashMap<>();
 		points = solutionServ.getUserPointsMap();
-		
 		return new ResponseEntity<HashMap<User, Integer>>(points, HttpStatus.OK);
 	}
 	
+	/*
+	 * Get all solutions that belong to an user
+	 * @param user object
+	 * @return list of solutions that belong to an user
+	 */
 	@GetMapping("/user-solution")
-	public ResponseEntity<List<Solution>> getAllSolutionsByUser(@RequestBody User user) {
-//		User user = "should be done at LoginService";
-		
+	public ResponseEntity<List<Solution>> getAllSolutionsByUser(@RequestBody User user) {	
 		List<Solution> solutions = solutionServ.getAllSolutionsByUserId(user);
-		
 		return new ResponseEntity<List<Solution>>(solutions, HttpStatus.OK);
 	}
 }
