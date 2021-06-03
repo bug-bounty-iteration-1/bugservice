@@ -27,8 +27,8 @@ User & Admin.
 
 #### Getting Started
 Execute the following command in git to import the project locally.
--	Backend Clone: https://github.com/bug-bounty-iteration-1/bugservice.git
--	Frontend Clone: https://github.com/bug-bounty-iteration-1/frontend.git
+-	Backend Clone: git clone https://github.com/bug-bounty-iteration-1/bugservice.git
+-	Frontend Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
 
 To run backend login microservice, execute the following commands:
 -	./consul.exe agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind= (your computer IPv4
