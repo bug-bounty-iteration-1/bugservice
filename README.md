@@ -57,10 +57,10 @@ To run frontend, execute the following commands:
 #### Bug Feed
 ![image](https://user-images.githubusercontent.com/50306571/120669661-a853d100-c45d-11eb-8b7d-27dea00b2b32.png)
 
-#### Create Bug
+#### Report a  Bug
 ![image](https://user-images.githubusercontent.com/50306571/120669733-b7d31a00-c45d-11eb-8d0c-a4884749db4e.png)
 
-#### Bug Solution
+#### Offer a Bug Solution
 ![image](https://user-images.githubusercontent.com/50306571/120669804-c8839000-c45d-11eb-803f-d0653c067720.png)
 
 #### User Profile
