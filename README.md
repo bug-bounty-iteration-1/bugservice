@@ -47,6 +47,18 @@ To run frontend, execute the following commands:
 -	Run ‘ng serve’ from a dev server. 
 -	Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
+#### Environment and Technologies
+* Java, JavaScript, TypeScript, Spring, Angular, Protractor, JUnit, TestNG, Jasmine, Jenkins, Spring Boot, Spring Data, Microservices
+Architecture
+* In the backend, the Bug Bounty application will be a pseudo Microservice Architecture. There will be a ‘loginservice’ Spring Boot Application as a microservice architecture and a ‘bugservice’ Spring Boot Application as a monolithic architecture.
+* In the frontend, Angular framework will be used along with Angular Material for a design.
+
+#### Version Control
+The GitHub version control will be used to manage source codes. Three repos named ‘frontend’, ‘loginservice’ and ‘bugservice’ will be created.
+
+### Use Cases Combined with Bug Bounty
+![image](https://user-images.githubusercontent.com/50306571/120672801-9fb0ca00-c460-11eb-83f0-77fcd54fde17.png)
+
 ### Screenshots of Application
 #### Signup
 ![image](https://user-images.githubusercontent.com/50306571/120669506-85c1b800-c45d-11eb-87fb-8d54ff469b03.png)
@@ -62,6 +74,9 @@ To run frontend, execute the following commands:
 
 #### Offer a Bug Solution
 ![image](https://user-images.githubusercontent.com/50306571/120669804-c8839000-c45d-11eb-803f-d0653c067720.png)
+
+#### Accept or Reject a Bug By Admin
+![image](https://user-images.githubusercontent.com/50306571/120672531-637d6980-c460-11eb-8bd2-e004c0fe0a1a.png)
 
 #### User Profile
 ![image](https://user-images.githubusercontent.com/50306571/120669871-dc2ef680-c45d-11eb-8dc0-36a370d77d40.png)
