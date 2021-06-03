@@ -26,7 +26,7 @@ User & Admin.
 *	As a user/admin, I should be able to sort and filter bugs and solutions.
 
 ### Getting Started
-&#8594	Execute the following commands in git to import the project locally.
+Execute the following commands in git to import the project locally.
 -	Bug Service Clone: git clone https://github.com/bug-bounty-iteration-1/bugservice.git
 -	Login Service Clone: git clone https://github.com/bug-bounty-iteration-1/loginservice.git
 -	Front End Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
