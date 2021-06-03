@@ -18,12 +18,12 @@ The status of a solution to a bug will be ‘false’ or ‘true’. When a solu
 User & Admin.
 
 #### Features
-	As a user or admin, I should be able to submit a new bug report.
-	As an admin, I should be able to accept or deny a bug submitted by other admins or users.
-	As a user, I should be able to see all bug reports that have been accepted.
-	As an admin, I should be able to see all bug reports.
-	As a user/admin, I should be able to accept a solution offered for my bug.
-	As a user/admin, I should be able to sort and filter bugs and solutions.
+* As a user or admin, I should be able to submit a new bug report.
+* As an admin, I should be able to accept or deny a bug submitted by other admins or users.
+* As a user, I should be able to see all bug reports that have been accepted.
+* As an admin, I should be able to see all bug reports.
+* As a user/admin, I should be able to accept a solution offered for my bug.
+* As a user/admin, I should be able to sort and filter bugs and solutions.
 
 #### Getting Started
 Execute the following commands in git to import the project locally.
@@ -31,13 +31,16 @@ Execute the following commands in git to import the project locally.
 -	Login Service Clone: git clone https://github.com/bug-bounty-iteration-1/loginservice.git
 -	Front End Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
 -	Bug Gateway Clone: ?????????????????
+
 To run backend login microservice, execute the following commands:
 -	./consul.exe agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind= (your computer IPv4
--	Then go to the browser and navigate to  http://localhost:8500/ui to check if the consul is up and running.
+-	Then go to the browser and navigate to  http://localhost:8500/ui to check if the consul is up and running
+
 After the consul is up and running, run the following apps in your IDE.
 -	Run ‘loginservice’
 -	Run ‘bug-gateway’
 -	Run ‘bugservice’  
+
 To run frontend, execute the following commands:
 -	Open your preferred IDE and navigate to the folder of the frontend app you have already cloned.
 -	Run ‘npm -I’ to install required dependencies.
