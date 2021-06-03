@@ -26,11 +26,8 @@ User & Admin.
 * As a user/admin, I should be able to sort and filter bugs and solutions.
 
 #### Getting Started
-Execute the following commands in git to import the project locally.
--	Bug Service Clone: git clone https://github.com/bug-bounty-iteration-1/bugservice.git
--	Login Service Clone: git clone https://github.com/bug-bounty-iteration-1/loginservice.git
--	Front End Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
--	Bug Gateway Clone: ?????????????????
+Execute the following command in git to import the project locally.
+-	https://github.com/bug-bounty-iteration-1/bugservice.git
 
 To run backend login microservice, execute the following commands:
 -	./consul.exe agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind= (your computer IPv4
