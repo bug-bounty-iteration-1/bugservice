@@ -51,7 +51,7 @@ Architecture
 * In the frontend, Angular framework will be used along with Angular Material for a design.
 
 #### Version Control
-The GitHub version control will be used to manage source codes. Three repos named ‘frontend’, ‘loginservice’ and ‘bugservice’ will be created.
+The GitHub version control was used to manage source codes. Three repos named ‘frontend’, ‘loginservice’ and ‘bugservice’ will be created.
 
 #### Use Cases Combined with Bug Bounty
 ![image](https://user-images.githubusercontent.com/50306571/120672801-9fb0ca00-c460-11eb-83f0-77fcd54fde17.png)
