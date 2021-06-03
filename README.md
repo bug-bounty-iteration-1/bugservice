@@ -18,15 +18,15 @@ The status of a solution to a bug will be ‘false’ or ‘true’. When a solu
 User & Admin.
 
 ### Features
-	As a user or admin, I should be able to submit a new bug report.
-	As an admin, I should be able to accept or deny a bug submitted by other admins or users.
-	As a user, I should be able to see all bug reports that have been accepted.
-	As an admin, I should be able to see all bug reports.
-	As a user/admin, I should be able to accept a solution offered for my bug.
-	As a user/admin, I should be able to sort and filter bugs and solutions.
+*	As a user or admin, I should be able to submit a new bug report.
+*	As an admin, I should be able to accept or deny a bug submitted by other admins or users.
+*	As a user, I should be able to see all bug reports that have been accepted.
+*	As an admin, I should be able to see all bug reports.
+*	As a user/admin, I should be able to accept a solution offered for my bug.
+*	As a user/admin, I should be able to sort and filter bugs and solutions.
 
 ### Getting Started
-*	Execute the following commands in git to import the project locally.
+&#8594	Execute the following commands in git to import the project locally.
 -	Bug Service Clone: git clone https://github.com/bug-bounty-iteration-1/bugservice.git
 -	Login Service Clone: git clone https://github.com/bug-bounty-iteration-1/loginservice.git
 -	Front End Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
