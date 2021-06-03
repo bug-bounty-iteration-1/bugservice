@@ -32,16 +32,16 @@ Execute the following commands in git to import the project locally.
 -	Front End Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
 -	Bug Gateway Clone: ?????????????????
 
-*	To run backend login microservice, execute the following commands:
+To run backend login microservice, execute the following commands:
 -	./consul.exe agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind= (your computer IPv4
 -	Then go to the browser and navigate to  http://localhost:8500/ui to check if the consul is up and running.
 
-*	After the consul is up and running, run the following apps in your IDE.
+After the consul is up and running, run the following apps in your IDE.
 -	Run ‘loginservice’
 -	Run ‘bug-gateway’
 -	Run ‘bugservice’  
 
-*	To run frontend, execute the following commands:
+To run frontend, execute the following commands:
 -	Open your preferred IDE and navigate to the folder of the frontend app you have already cloned.
 -	Run ‘npm -I’ to install required dependencies.
 -	Run ‘ng serve’ from a dev server. 
