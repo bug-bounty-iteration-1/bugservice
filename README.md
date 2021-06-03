@@ -1,21 +1,46 @@
 # Bug Bounty
-### Project Introduction
-Bug Bounty is a web application that allows users to solicit help from other developers by posting bug reports. A bug is defined as a a code snippet that has errors, exceptions or that does not run as intended. It is similar to the well known 'Stack Overflow', however has added features such as an administrator role to approve or deny bug reports, as well as select the best solution for a submitted report. Bug Bounty also adds another twist, in that when a solution for a bug is selected, the author of that solution receives points.
+### Brief Description
+Bug Bounty is application like our own Stack Overflow application, where users/admin can submit Bugs. Admins will be approving, rejecting, or resolving bugs. Users and admins can post solutions for bugs reported by other users/admins and get points for the first correct solution. The solution will be accepted by the user/admin who posted the bug, and resolved by a different admin. The admin who posted a bug cannot approve, reject, you or resolve the bug. 
 
-### Environment / Technologies
-Java, JavaScript, TypeScript, Spring, Angular, Protractor, Selenium / Webdriver, JUnit, TestNG, Jasmine, Jenkins, Spring Boot, Spring Data, Microservices
+### Score Rule
+All the bugs will be treated equally and users/admins who offer correct solutions will receive 5 points. When there are multiple solutions for a bug, the solution offered first will receive the score.
 
-### Features:
-* Users and administrators are able to submit bug reports, and view previously submitted bug reports.
-* Administrators can also approve or deny bug reports that are submitted by others.
-* Both users and administrators are also able to offer solutions to bug reports that have been previously submitted by other users.
-* Administrators can mark a bug report as resolved, along with the resolver.
-* Users and administrators will also receive points for any solution they submit that is marked as the solution to solve the bug it was submitted for.
+### Bug Status
+A bug will change from different statuses. When reported by a user/admin, it will be ‘pending’ until an admin ‘accepts’ or ‘rejects’ it. Users can only view accepted bugs, but admins can view all bugs. A bug can be ‘rejected’ by an admin and will be invisible to all users.
 
-### ER Diagram
+### Solution, and Bug Resolving Standards
+The status of a solution to a bug will be ‘false’ or ‘true’. When a solution is offered by a user/admin, it will be false until the relevant user/admin accepts the solution and updates it to be ‘true’. After a solution is updated true, an admin will mark the relevant bug as ‘resolved’ and the relevant user/admin as a resolver. Then the leadership score board will update automatically when the user/admin is marked as a resolver.
 
-![image](https://user-images.githubusercontent.com/50306571/119531535-042da400-bd52-11eb-9843-e9e952b4db0c.png)
+### What is a Bug? 
+"A bug is a code snippet that has errors or is not running as intended." 
 
+### Roles
+User & Admin.
 
-### Requirement Diagram
-![image](https://user-images.githubusercontent.com/50306571/120244081-43b72d00-c237-11eb-919e-b758e757b15d.png)
+Features
+	As a user or admin, I should be able to submit a new bug report.
+	As an admin, I should be able to accept or deny a bug submitted by other admins or users.
+	As a user, I should be able to see all bug reports that have been accepted.
+	As an admin, I should be able to see all bug reports.
+	As a user/admin, I should be able to accept a solution offered for my bug.
+	As a user/admin, I should be able to sort and filter bugs and solutions.
+
+Getting Started
+	Execute the following commands in git to import the project locally.
+-	Bug Service Clone: git clone https://github.com/bug-bounty-iteration-1/bugservice.git
+-	Login Service Clone: git clone https://github.com/bug-bounty-iteration-1/loginservice.git
+-	Front End Clone: git clone https://github.com/bug-bounty-iteration-1/frontend.git
+-	Bug Gateway Clone: ?????????????????
+	To run backend login microservice, execute the following commands:
+-	./consul.exe agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind= (your computer IPv4
+-	Then go to the browser and navigate to  http://localhost:8500/ui to check if the consul is up and running.
+	After the consul is up and running, run the following apps in your IDE.
+-	Run ‘loginservice’
+-	Run ‘bug-gateway’
+-	Run ‘bugservice’  
+	To run frontend, execute the following commands:
+-	Open your preferred IDE and navigate to the folder of the frontend app you have already cloned.
+-	Run ‘npm -I’ to install required dependencies.
+-	Run ‘ng serve’ from a dev server. 
+-	Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
