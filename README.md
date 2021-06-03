@@ -27,7 +27,8 @@ User & Admin.
 
 #### Getting Started
 Execute the following command in git to import the project locally.
--	https://github.com/bug-bounty-iteration-1/bugservice.git
+-	Backend Clone: https://github.com/bug-bounty-iteration-1/bugservice.git
+-	Frontend Clone: https://github.com/bug-bounty-iteration-1/frontend.git
 
 To run backend login microservice, execute the following commands:
 -	./consul.exe agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind= (your computer IPv4
@@ -51,7 +52,7 @@ Architecture
 * In the frontend, Angular framework will be used along with Angular Material for a design.
 
 #### Version Control
-The GitHub version control was used to manage source codes. Three repos named ‘frontend’, ‘loginservice’ and ‘bugservice’ will be created.
+The GitHub version control was used to manage source codes. Three repos named ‘frontend’ and ‘bugservice’ were used to manage respective source codes.
 
 #### Use Cases Combined with Bug Bounty
 ![image](https://user-images.githubusercontent.com/50306571/120672801-9fb0ca00-c460-11eb-83f0-77fcd54fde17.png)
