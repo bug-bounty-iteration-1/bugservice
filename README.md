@@ -1,8 +1,8 @@
-## Bug Bounty
+## Bug Bounty   
 #### Brief Description
 Bug Bounty is application like our own Stack Overflow application, where users/admin can submit Bugs. Admins will be approving, rejecting, or resolving bugs. Users and admins can post solutions for bugs reported by other users/admins and get points for the first correct solution. The solution will be accepted by the user/admin who posted the bug, and resolved by a different admin. The admin who posted a bug cannot approve, reject, you or resolve the bug. 
 
-#### Score Rule
+#### Score Rule   
 All the bugs will be treated equally and users/admins who offer correct solutions will receive 5 points. When there are multiple solutions for a bug, the solution offered first will receive the score.
 
 #### Bug Status
@@ -52,7 +52,7 @@ Architecture
 * In the frontend, Angular framework will be used along with Angular Material for a design.
 
 #### Version Control
-The GitHub version control was used to manage source codes. Three repos named ‘frontend’ and ‘bugservice’ were used to manage respective source codes.
+The GitHub version control was used to manage source codes. Three repos named ‘frontend’ and ‘bugservice’ were used to manage respective source codes..
 
 #### Use Cases Combined with Bug Bounty
 ![image](https://user-images.githubusercontent.com/50306571/120672801-9fb0ca00-c460-11eb-83f0-77fcd54fde17.png)
